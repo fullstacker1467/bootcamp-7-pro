@@ -224,7 +224,7 @@ function renderQil() {
             <img src="${item.img}" />
             ${
               item.liked
-                ? `<i onclick="like(${index})" class="fa-solid fa-heart"></i>`
+                ? `<i onclick="like(${index})" class="fa-solid fa-heart red"></i>`
                 : ` <i onclick="like(${index})" class="fa-regular fa-heart"></i>`
             }
           </picture>
@@ -248,7 +248,7 @@ function renderQil() {
               </div>
               ${
                 item.bought
-                  ? `<i class="fa-solid fa-check"></i>`
+                  ? `<i class="fa-solid fa-check green"></i>`
                   : `<button ${
                       item.quantity > 0 ? "" : "disabled"
                     } onclick="buy(${index})" class="shop">
@@ -351,7 +351,12 @@ const buy = (param) => {
 };
 
 function clicker() {
-  more.innerHTML = cart.length;
+  if(cart.length > 0 ){
+    more.innerHTML = cart.length;
+    more.style.display = 'block'
+  }else {
+    more.style.display = 'none'
+  }
 }
 clicker();
 
