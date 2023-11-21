@@ -4,6 +4,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  transition: all ease-in-out 0.3s;
 }
 
 .container {
@@ -38,21 +39,29 @@ nav .container .input-field input {
   border-radius: 10px;
   outline: none;
 }
-nav .container button {
-  padding: 5px 10px;
-  font-size: 20px;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+nav .container .tugmalar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
-nav .container .cart-button {
+nav .container .tugmalar button {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+nav .container .tugmalar button i {
+  font-size: 30px;
+  color: white;
+}
+nav .container .tugmalar .cart-button {
   position: relative;
 }
-nav .container .cart-button i {
+nav .container .tugmalar .cart-button i {
   font-size: 30px;
   color: #fff;
 }
-nav .container .cart-button span {
+nav .container .tugmalar .cart-button span {
   width: 24px;
   height: 24px;
   display: flex;
@@ -76,15 +85,23 @@ section .container .card {
   position: relative;
   border: 2px #346473 solid;
   border-radius: 10px;
+  overflow: hidden;
 }
-section .container .card picture i {
+section .container .card figure {
+  overflow: hidden;
+  height: 250px;
+}
+section .container .card figure i {
   position: absolute;
   right: 10px;
   top: 10px;
   font-size: 22px;
 }
-section .container .card picture img {
+section .container .card figure img {
   width: 100%;
+}
+section .container .card figure img:hover {
+  transform: scale(0.8);
 }
 section .container .card .text-field {
   padding: 10px;
@@ -158,12 +175,24 @@ section .container .card .text-field .flex:nth-child(4) .shop {
 .modal .container .body .card {
   background: white;
   border-radius: 10px;
+  overflow: hidden;
 }
-.modal .container .body .card picture img {
+.modal .container .body .card figure {
+  overflow: hidden;
+  height: 200px;
+}
+.modal .container .body .card figure img {
   width: 100%;
+}
+.modal .container .body .card figure img:hover {
+  transform: scale(0.8);
 }
 .modal .container .body .card .text-field {
   padding: 5px;
+}
+.modal .container .body .card .text-field h3 {
+  text-align: center;
+  font-weight: 400;
 }
 .modal .container .body .card .text-field .flex {
   padding: 5px;
@@ -216,16 +245,29 @@ section .container .card .text-field .flex:nth-child(4) .shop {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  background: #346473;
+  background: white;
   gap: 20px;
+  border-radius: 10px;
 }
 .input-modal .container form h1 {
   text-align: center;
   font-weight: 400;
-  color: white;
+  color: dodgerblue;
 }
 .input-modal .container form input {
   padding: 10px;
+  outline-color: dodgerblue;
+}
+.input-modal .container form button {
+  font-size: 20px;
+  padding: 10px 0;
+  color: white;
+  background: dodgerblue;
+  border: none;
+  border-radius: 10px;
+}
+.input-modal .container form button:hover {
+  background: deepskyblue;
 }
 
 .green {

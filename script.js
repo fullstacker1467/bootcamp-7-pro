@@ -237,14 +237,14 @@ function renderQil() {
   products.map((item, index) => {
     container.innerHTML += `
         <div class="card">
-          <picture>
+          <figure>
             <img src="${item.img}" />
             ${
               item.liked
                 ? `<i onclick="like(${index})" class="fa-solid fa-heart red"></i>`
                 : ` <i onclick="like(${index})" class="fa-regular fa-heart"></i>`
             }
-          </picture>
+          </figure>
           <div class="text-field">
             <h3>${item.nomi}</h3>
             <div class="flex">
@@ -285,9 +285,9 @@ function setRender() {
   cart.map((item, index) => {
     modal_container.innerHTML += `
     <div class="card">
-            <picture>
+            <figure>
               <img src="${item.img}" alt="" />
-            </picture>
+            </figure>
             <div class="text-field">
               <h3>${item.nomi}</h3>
               <div class="flex">
@@ -437,14 +437,14 @@ input.addEventListener("input", (e) => {
       .map((item, index) => {
         container.innerHTML += ` 
         <div class="card">
-        <picture>
+        <figure>
           <img src="${item.img}" />
           ${
             item.liked
               ? `<i onclick="like(${index})" class="fa-solid fa-heart"></i>`
               : ` <i onclick="like(${index})" class="fa-regular fa-heart"></i>`
           }
-        </picture>
+        </figure>
         <div class="text-field">
           <h3>${item.nomi}</h3>
           <div class="flex">
@@ -480,22 +480,37 @@ input.addEventListener("input", (e) => {
   }
 });
 
+function clearValue() {
+  form_input.forEach((item) => {
+    item.value = "";
+  });
+}
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  inp_obj = {
-    id: products.length + 1,
-    img: URL.createObjectURL(rasm_ol.files[0]),
-    nomi: form_input[0].value,
-    narx: form_input[1].value,
-    soni: 1,
-    liked: false,
-    bought: false,
-    quantity: form_input[2].value,
-  };
-  products = [...products, inp_obj];
-  setLocal(products, "mahsulot");
-  renderQil();
-  input_modal.classList.remove("act");
-  document.body.style.overflow = "auto";
-  inp_obj = {};
+  if (
+    form_input[0].value !== "" &&
+    form_input[1].value !== "" &&
+    form_input[2].value !== ""
+  ) {
+    inp_obj = {
+      id: products.length,
+      img: URL.createObjectURL(rasm_ol.files[0]),
+      nomi: form_input[0].value,
+      narx: form_input[1].value,
+      soni: 1,
+      liked: false,
+      bought: false,
+      quantity: form_input[2].value,
+    };
+    products = [...products, inp_obj];
+    setLocal(products, "mahsulot");
+    renderQil();
+    clearValue();
+    input_modal.classList.remove("act");
+    document.body.style.overflow = "auto";
+    inp_obj = {};
+  } else {
+    alert("malumot qoshilmadi");
+  }
 });

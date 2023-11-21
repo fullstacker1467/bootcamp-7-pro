@@ -5,6 +5,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  transition: all ease-in-out 0.3s;
 }
 
 .container {
@@ -37,32 +38,40 @@ nav {
         outline: none;
       }
     }
-    button {
-      padding: 5px 10px;
-      font-size: 20px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .cart-button {
-      position: relative;
-      i {
-        font-size: 30px;
-        color: #fff;
+    .tugmalar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      button {
+        border: none;
+        cursor: pointer;
+        background: transparent;
+        i {
+          font-size: 30px;
+          color: white;
+        }
       }
-      span {
-        width: 24px;
-        height: 24px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        right: -10px;
-        top: -10px;
-        background: dodgerblue;
-        padding: 0 5px;
-        color: white;
-        border-radius: 50%;
+      .cart-button {
+        position: relative;
+        i {
+          font-size: 30px;
+          color: #fff;
+        }
+        span {
+          width: 24px;
+          height: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          right: -10px;
+          top: -10px;
+          background: dodgerblue;
+          padding: 0 5px;
+          color: white;
+          border-radius: 50%;
+        }
       }
     }
   }
@@ -77,7 +86,10 @@ section {
       position: relative;
       border: 2px #346473 solid;
       border-radius: 10px;
-      picture {
+      overflow: hidden;
+      figure {
+        overflow: hidden;
+        height: 250px;
         i {
           position: absolute;
           right: 10px;
@@ -86,6 +98,9 @@ section {
         }
         img {
           width: 100%;
+          &:hover {
+            transform: scale(0.8);
+          }
         }
       }
       .text-field {
@@ -161,13 +176,23 @@ section {
       .card {
         background: white;
         border-radius: 10px;
-        picture {
+        overflow: hidden;
+        figure {
+          overflow: hidden;
+          height: 200px;
           img {
             width: 100%;
+            &:hover {
+              transform: scale(0.8);
+            }
           }
         }
         .text-field {
           padding: 5px;
+          h3 {
+            text-align: center;
+            font-weight: 400;
+          }
           .flex {
             padding: 5px;
             display: flex;
@@ -216,20 +241,33 @@ section {
       color: white;
       font-size: 30px;
     }
-    form{
+    form {
       width: 30%;
       display: flex;
       flex-direction: column;
       padding: 10px;
-      background: #346473;
+      background: white;
       gap: 20px;
-      h1{
+      border-radius: 10px;
+      h1 {
         text-align: center;
         font-weight: 400;
-        color: white;
+        color:dodgerblue;
       }
-      input{
+      input {
         padding: 10px;
+        outline-color: dodgerblue;
+      }
+      button{
+        font-size: 20px;
+        padding: 10px 0;
+        color: white;
+        background: dodgerblue;
+        border: none;
+        border-radius: 10px;
+        &:hover{
+          background: deepskyblue;
+        }
       }
     }
   }
