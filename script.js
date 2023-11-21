@@ -1,11 +1,17 @@
 const container = document.querySelector("#cards");
 const modal_container = document.querySelector(".body");
 const modal = document.querySelector(".modal");
+const input_modal = document.querySelector(".input-modal");
 const close_modal = document.querySelector("#close-modal");
 const open_modal = document.querySelector(".cart-button");
 const more = document.querySelector("#more");
 const all = document.querySelector("#umumiy");
-const input = document.querySelector("input");
+const input = document.querySelector("#search");
+const open_form = document.querySelector("#open-form");
+const close_form = document.querySelector("#close-form");
+const form = document.querySelector("form");
+const form_input = document.querySelectorAll(".form-input");
+const rasm_ol = document.querySelector(".rasm-ol");
 let items = [
   {
     id: 0,
@@ -190,6 +196,7 @@ let items = [
 ];
 let products = [];
 let cart = JSON.parse(localStorage.getItem("savat")) || [];
+let inp_obj = {};
 
 function setLocal(arr, key) {
   localStorage.setItem(key, JSON.stringify(arr));
@@ -208,6 +215,16 @@ setData();
 open_modal.addEventListener("click", () => {
   modal.classList.add("active");
   document.body.style.overflow = "hidden";
+});
+
+open_form.addEventListener("click", () => {
+  input_modal.classList.add("act");
+  document.body.style.overflow = "hidden";
+});
+
+close_form.addEventListener("click", () => {
+  input_modal.classList.remove("act");
+  document.body.style.overflow = "auto";
 });
 
 close_modal.addEventListener("click", () => {
@@ -351,11 +368,11 @@ const buy = (param) => {
 };
 
 function clicker() {
-  if(cart.length > 0 ){
+  if (cart.length > 0) {
     more.innerHTML = cart.length;
-    more.style.display = 'block'
-  }else {
-    more.style.display = 'none'
+    more.style.display = "block";
+  } else {
+    more.style.display = "none";
   }
 }
 clicker();
@@ -457,8 +474,28 @@ input.addEventListener("input", (e) => {
             }
           </div>
         </div>
-      </div>
+       </div>
       `;
       });
   }
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  inp_obj = {
+    id: products.length + 1,
+    img: URL.createObjectURL(rasm_ol.files[0]),
+    nomi: form_input[0].value,
+    narx: form_input[1].value,
+    soni: 1,
+    liked: false,
+    bought: false,
+    quantity: form_input[2].value,
+  };
+  products = [...products, inp_obj];
+  setLocal(products, "mahsulot");
+  renderQil();
+  input_modal.classList.remove("act");
+  document.body.style.overflow = "auto";
+  inp_obj = {};
 });

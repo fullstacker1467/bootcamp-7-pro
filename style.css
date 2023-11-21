@@ -38,6 +38,13 @@ nav .container .input-field input {
   border-radius: 10px;
   outline: none;
 }
+nav .container button {
+  padding: 5px 10px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
 nav .container .cart-button {
   position: relative;
 }
@@ -120,7 +127,6 @@ section .container .card .text-field .flex:nth-child(4) .shop {
 .modal {
   height: 100vh;
   width: 100%;
-  overflow: auto;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.7);
@@ -128,6 +134,7 @@ section .container .card .text-field .flex:nth-child(4) .shop {
           backdrop-filter: blur(10px);
   position: fixed;
   z-index: 54632;
+  overflow: auto;
   display: none;
 }
 .modal .container {
@@ -172,6 +179,53 @@ section .container .card .text-field .flex:nth-child(4) .shop {
 .modal .container .body .card .text-field .flex .btn button {
   width: 30px;
   height: 30px;
+}
+
+.input-modal.act {
+  display: block;
+}
+
+.input-modal {
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  position: fixed;
+  z-index: 54632;
+  display: none;
+}
+.input-modal .container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.input-modal .container #close-form {
+  position: absolute;
+  right: 10px;
+  top: 23px;
+  color: white;
+  font-size: 30px;
+}
+.input-modal .container form {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: #346473;
+  gap: 20px;
+}
+.input-modal .container form h1 {
+  text-align: center;
+  font-weight: 400;
+  color: white;
+}
+.input-modal .container form input {
+  padding: 10px;
 }
 
 .green {

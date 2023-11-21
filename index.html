@@ -12,14 +12,18 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="icon" href="https://static.vecteezy.com/system/resources/thumbnails/008/532/596/small/kiwi-fruit-cutout-file-png.png">
+    <link
+      rel="icon"
+      href="https://static.vecteezy.com/system/resources/thumbnails/008/532/596/small/kiwi-fruit-cutout-file-png.png"
+    />
   </head>
   <body>
     <nav>
       <div class="container">
         <div class="input-field">
-          <input type="search" placeholder="Search Something.." />
+          <input id="search" type="search" placeholder="Search Something.." />
         </div>
+        <button id="open-form">New Product +</button>
         <div class="cart-button">
           <i class="fa-solid fa-cart-shopping"></i>
           <span id="more"></span>
@@ -33,6 +37,19 @@
           <i id="close-modal" class="fa-solid fa-xmark"></i>
         </div>
         <div class="body"></div>
+      </div>
+    </div>
+    <div class="input-modal">
+      <div class="container">
+        <i id="close-form" class="fa-solid fa-xmark"></i>
+        <form action="">
+          <h1>Malumot Qosh</h1>
+          <input class="form-input" type="text" name="nomi" placeholder="mahsulot nomi" />
+          <input class="form-input" type="number" name="narx" placeholder="mahsulot narxi" />
+          <input class="form-input" type="number" name="soni" placeholder="mahsulot soni" />
+          <input class="rasm-ol" type="file" name="rasm" />
+          <button >Submit</button>
+        </form>
       </div>
     </div>
     <section>
